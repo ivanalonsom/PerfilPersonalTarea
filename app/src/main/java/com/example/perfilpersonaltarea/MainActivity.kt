@@ -16,10 +16,10 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = ArrayAdapter.createFromResource(
             this,
-            R.array.opciones_paises, R.layout.spinner_paises
+            R.array.opciones_paises, R.layout.tamanoletra_spinner
         )
 
-        adapter.setDropDownViewResource(R.layout.spinner_paises)
+        adapter.setDropDownViewResource(R.layout.tamanoletra_spinner)
 
         spinner_paises.adapter = adapter
 
