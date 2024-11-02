@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PerfilPersonalTarea</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string-array name="opciones_paises">
+        <item>España</item>
+        <item>Bolivia</item>
+        <item>El Perú</item>
+        <item>Portugal</item>
+    </string-array>
 </resources>
