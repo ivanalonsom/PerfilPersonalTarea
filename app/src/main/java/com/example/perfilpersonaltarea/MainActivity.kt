@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val spinner_paises = findViewById<Spinner>(R.id.spinner)
+        val spinner_paises = findViewById<Spinner>(R.id.spinnerPais)
 
         val adapter = ArrayAdapter.createFromResource(
             this,
