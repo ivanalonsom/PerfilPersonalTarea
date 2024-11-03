@@ -4,6 +4,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.SeekBar
 import android.widget.Spinner
@@ -16,7 +17,7 @@ private lateinit var nombreEditText: EditText
 private lateinit var apellidoEditText: EditText
 private lateinit var correoEditText: EditText
 private lateinit var generoRadioGroup: RadioGroup
-private lateinit var paisSpinner: Spinner
+private lateinit var paisesSpinner: Spinner
 private lateinit var lecturaCheckBox: CheckBox
 private lateinit var deporteCheckBox: CheckBox
 private lateinit var musicaCheckBox: CheckBox
@@ -26,6 +27,9 @@ private lateinit var nivelSatisfaccionTextView: TextView
 private lateinit var suscripcionSwitch: SwitchCompat
 private lateinit var guardarBoton: Button
 private lateinit var resumenTextView: TextView
+
+
+private lateinit var radioButtonSelected : RadioButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,8 +41,8 @@ class MainActivity : AppCompatActivity() {
         apellidoEditText = findViewById(R.id.editTextApellido)
         correoEditText = findViewById(R.id.editTextCorreo)
         generoRadioGroup = findViewById(R.id.radioGroupGenero)
-        paisSpinner = findViewById(R.id.spinnerPais)
         lecturaCheckBox = findViewById(R.id.checkButtonLectura)
+        paisesSpinner = findViewById<Spinner>(R.id.spinnerPais)
         deporteCheckBox = findViewById(R.id.checkButtonDeporte)
         musicaCheckBox = findViewById(R.id.checkButtonMusica)
         arteCheckBox = findViewById(R.id.checkButtonArte)
@@ -48,8 +52,8 @@ class MainActivity : AppCompatActivity() {
         guardarBoton = findViewById(R.id.buttonGuardar)
         resumenTextView = findViewById(R.id.textViewResumen)
 
-        //getResumenPerfil(nombreEditText, apellidoEditText, correoEditText, )
-        val spinnerPaises = findViewById<Spinner>(R.id.spinnerPais)
+
+
 
         val adaptador = ArrayAdapter.createFromResource(
             this,
@@ -64,7 +68,8 @@ class MainActivity : AppCompatActivity() {
         adaptador.setDropDownViewResource(R.layout.tamanoletra_spinner)
         // Este controla el estilo de letra cuando despliego el spinner, en este caso lo mismo.
 
-        spinnerPaises.adapter = adaptador
+        paisesSpinner.adapter = adaptador
+
 
         nivelSatisfaccionSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -90,38 +95,57 @@ class MainActivity : AppCompatActivity() {
             val nombre : String = nombreEditText.text.toString()
             val apellido : String = apellidoEditText.text.toString()
             val email : String = correoEditText.text.toString()
-            val hobbies = getHobbiesSeleccionados()
+            val genero = getGeneroSeleccionado()
+            val hobbies : String = getHobbiesSeleccionados()
+            val pais = paisesSpinner.selectedItem.toString()
+            val satisfaccion = nivelSatisfaccionSeekBar.progress
+            val suscrito = getSuscripcion()
 
 
-
-
-
+            getResumenPerfil(nombre, apellido, email, genero,pais, hobbies, satisfaccion, suscrito )
 
         }
 
     }
 
 
-    private fun getHobbiesSeleccionados() : List<String> {
+    private fun getGeneroSeleccionado(): String {
+        val generoSeleccionadoId : Int = generoRadioGroup.checkedRadioButtonId
+
+        return when (generoSeleccionadoId) {
+            R.id.radioButtonMasculino -> getString(R.string.masculino )
+            R.id.radioButtonFemenino -> getString(R.string.femenino )
+            R.id.radioButtonOtro -> getString(R.string.otro )
+            else -> getString(R.string.genero_vacio )
+        }
+    }
+
+
+    private fun getHobbiesSeleccionados() : String {
 
         val hobbies = mutableListOf<String>()
-        //if(lecturaCheckBox.isChecked)
-        when{
-            lecturaCheckBox.isChecked -> hobbies.add(R.string.lectura.toString())
-            deporteCheckBox.isChecked -> hobbies.add(R.string.deporte.toString())
-            musicaCheckBox.isChecked -> hobbies.add(R.string.musica.toString())
-            arteCheckBox.isChecked -> hobbies.add(R.string.arte.toString())
 
-        }
-        return hobbies
+        if (lecturaCheckBox.isChecked) hobbies.add(getString(R.string.lectura))
+        if (deporteCheckBox.isChecked) hobbies.add(getString(R.string.deporte))
+        if (musicaCheckBox.isChecked) hobbies.add(getString(R.string.musica))
+        if (arteCheckBox.isChecked) hobbies.add(getString(R.string.arte))
+        // Con un when, al no tener una condición, solo evaluaba lo primero que fuera cierto y salía
+
+        return hobbies.joinToString(", ")
+    }
+
+
+    private fun getSuscripcion() : String{
+
+        return if (suscripcionSwitch.isChecked) getString(R.string.Si) else getString(R.string.No)
     }
 
 
     private fun getResumenPerfil(nom : String, ap : String, email : String, genero : String,
-                                 pais : String, hobbies : List<String>, satisf : String, susc : String){
+                                 pais : String, hobbies : String, satisf : Int, susc : String){
 
         resumenTextView.setText(getString(R.string.resumen_general, nom, ap, email, genero, pais,
-            hobbies.joinToString(", "), satisf, susc) )
+            hobbies, satisf, susc) )
 
     }
 

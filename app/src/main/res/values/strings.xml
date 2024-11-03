@@ -8,6 +8,7 @@
     <string name="masculino">Masculino</string>
     <string name="femenino">Femenino</string>
     <string name="otro">Otro</string>
+    <string name="genero_vacio">no seleccionado</string>
     <string name="selecciona_tus_hobbies">Selecciona tus hobbies:</string>
     <string name="lectura">Lectura</string>
     <string name="deporte">Deporte</string>
@@ -20,20 +21,22 @@
     <string-array name="opciones_paises">
         <item>España</item>
         <item>Bolivia</item>
-        <item>El Perú</item>
+        <item>Perú</item>
         <item>Portugal</item>
     </string-array>
 
+    <string name="Si">Si</string>
+    <string name="No">No</string>
     <string name="satisfaccion_dinamica">Nivel de satisfacción: %d</string>
 
     <string name="resumen_general">
-            Nombre completo: %1$s %2$s
-            Correo: %3$s
-            Género: %4$s
-            Pais: %5$s
-            Hobbies: %6$s
-            Nivel de satisfacción: %7$s
-            Suscripción al boletín: %8$s
+        Nombre completo: %1$s %2$s
+        \nCorreo: %3$s
+        \nGénero: %4$s
+        \nPais: %5$s
+        \nHobbies: %6$s
+        \nNivel de satisfacción: %7$d
+        \nSuscripción al boletín: %8$s
     </string>
 
 </resources>
