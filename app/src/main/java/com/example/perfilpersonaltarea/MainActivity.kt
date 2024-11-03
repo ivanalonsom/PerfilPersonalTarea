@@ -15,23 +15,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 
-private lateinit var nombreEditText: EditText
-private lateinit var apellidoEditText: EditText
-private lateinit var correoEditText: EditText
-private lateinit var generoRadioGroup: RadioGroup
-private lateinit var paisesSpinner: Spinner
-private lateinit var lecturaCheckBox: CheckBox
-private lateinit var deporteCheckBox: CheckBox
-private lateinit var musicaCheckBox: CheckBox
-private lateinit var arteCheckBox: CheckBox
-
-private lateinit var nivelSatisfaccionTextView: TextView
-private lateinit var suscripcionSwitch: SwitchCompat
-private lateinit var guardarBoton: Button
-private lateinit var resumenTextView: TextView
-
-
-private lateinit var radioButtonSelected : RadioButton
+private lateinit var generoRadioGroup : RadioGroup
+private lateinit var lecturaCheckBox : CheckBox
+private lateinit var deporteCheckBox : CheckBox
+private lateinit var arteCheckBox : CheckBox
+private lateinit var musicaCheckBox : CheckBox
+private lateinit var resumenTextView : TextView
+private lateinit var suscripcionSwitch : SwitchCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,22 +29,20 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        nombreEditText = findViewById(R.id.editTextNombre)
-        apellidoEditText = findViewById(R.id.editTextApellido)
-        correoEditText = findViewById(R.id.editTextCorreo)
+        val nombreEditText: EditText = findViewById(R.id.editTextNombre)
+        val apellidoEditText : EditText= findViewById(R.id.editTextApellido)
+        val correoEditText : EditText= findViewById(R.id.editTextCorreo)
         generoRadioGroup = findViewById(R.id.radioGroupGenero)
+        val paisesSpinner : Spinner= findViewById<Spinner>(R.id.spinnerPais)
         lecturaCheckBox = findViewById(R.id.checkButtonLectura)
-        paisesSpinner = findViewById<Spinner>(R.id.spinnerPais)
         deporteCheckBox = findViewById(R.id.checkButtonDeporte)
         musicaCheckBox = findViewById(R.id.checkButtonMusica)
         arteCheckBox = findViewById(R.id.checkButtonArte)
         val nivelSatisfaccionSeekBar : SeekBar = findViewById(R.id.seekBarSatisfaccion)
-        nivelSatisfaccionTextView = findViewById(R.id.textViewSatisfaccion)
+        val nivelSatisfaccionTextView : TextView= findViewById(R.id.textViewSatisfaccion)
         suscripcionSwitch = findViewById(R.id.switchSuscripcion)
-        guardarBoton = findViewById(R.id.buttonGuardar)
+        val guardarBoton : Button = findViewById(R.id.buttonGuardar)
         resumenTextView = findViewById(R.id.textViewResumen)
-
-
 
 
         val adaptador = ArrayAdapter.createFromResource(

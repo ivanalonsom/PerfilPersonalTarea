@@ -4,9 +4,11 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/fondo_pantalla"
         android:padding="16dp">
 
         <!-- Título de la Aplicación -->
@@ -53,6 +55,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imgAvatar">
+
             <requestFocus />
 
         </EditText>
@@ -61,38 +64,38 @@
             android:id="@+id/editTextApellido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:hint="@string/apellido"
-            app:layout_constraintTop_toBottomOf="@id/editTextNombre"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:inputType="textPersonName"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_marginTop="8dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextNombre" />
 
         <EditText
             android:id="@+id/editTextCorreo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:hint="@string/correo_electronico"
-            app:layout_constraintTop_toBottomOf="@id/editTextApellido"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:inputType="textEmailAddress"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_marginTop="8dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextApellido" />
 
         <!-- Selección de Género -->
         <RadioGroup
             android:id="@+id/radioGroupGenero"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/editTextCorreo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextCorreo">
 
             <RadioButton
                 android:id="@+id/radioButtonMasculino"
@@ -124,12 +127,12 @@
             android:id="@+id/spinnerPais"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/radioGroupGenero"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroupGenero" />
 
         <!-- Hobbies -->
         <TextView
@@ -164,6 +167,7 @@
             android:id="@+id/checkButtonMusica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#A95B5B"
             android:text="@string/musica"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -188,14 +192,15 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/checkButtonArte" />
+
         <SeekBar
             android:id="@+id/seekBarSatisfaccion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:max="10"
-            app:layout_constraintTop_toBottomOf="@id/textViewSatisfaccion"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/textViewSatisfaccion" />
 
         <!-- Suscripción al Boletín -->
         <!-- Con Switch me daba un warning en el código del botón, por eso
@@ -206,6 +211,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@color/suscribete"
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:text="@string/suscribirse_al_boletin"
