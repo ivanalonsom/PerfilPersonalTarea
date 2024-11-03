@@ -102,9 +102,16 @@ class MainActivity : AppCompatActivity() {
             val satisfaccion = nivelSatisfaccionSeekBar.progress
             val suscrito = getSuscripcion()
 
-            val esNombreValido = verificaCampoObligatorio(nombreEditText)
-            getResumenPerfil(nombre, apellido, email, genero,pais, hobbies, satisfaccion, suscrito )
+            val nombreNoVacio = verificaCampoObligatorio(nombreEditText)
+            val apellidoNoVacio = verificaCampoObligatorio(apellidoEditText)
+            val emailNoVacio = verificaCampoObligatorio(correoEditText)
+            val emailValido = emailValido(email)
 
+            if (nombreNoVacio && apellidoNoVacio && emailNoVacio) {
+                if (emailValido) {
+                    getResumenPerfil(nombre,apellido,email,genero,pais,hobbies,satisfaccion,suscrito)
+                }
+            }
         }
 
     }
@@ -144,11 +151,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun verificaCampoObligatorio(campo: EditText): Boolean {
         val texto = campo.text.toString() // Obtén el texto del campo
+
         return if (TextUtils.isEmpty(texto)) {
             campo.error = "Este campo es obligatorio" // Muestra un mensaje de error
             false
         } else {
             true
+        }
+    }
+
+
+    private fun emailValido(email : String) : Boolean {
+
+        val esValido : Boolean = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        return if (esValido){
+            true
+        }else{
+            correoEditText.error = "El email introducido no es válido"
+            false
         }
     }
 
