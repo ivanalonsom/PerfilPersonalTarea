@@ -12,17 +12,37 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val spinner_paises = findViewById<Spinner>(R.id.spinnerPais)
+        val spinnerPaises = findViewById<Spinner>(R.id.spinnerPais)
 
-        val adapter = ArrayAdapter.createFromResource(
+        val adaptador = ArrayAdapter.createFromResource(
             this,
             R.array.opciones_paises, R.layout.tamanoletra_spinner
         )
+        // El layout que pasamos aquí controla el estilo de letra del elemento seleccionado
 
-        adapter.setDropDownViewResource(R.layout.tamanoletra_spinner)
+        adaptador.setDropDownViewResource(R.layout.tamanoletra_spinner)
+        // Este controla el estilo de letra cuando despliego el spinner, en este caso lo mismo.
 
-        spinner_paises.adapter = adapter
+        spinnerPaises.adapter = adaptador
+
+    }
+
+
+    fun muestraDatos(){
+
+
+
 
 
     }
+
+
+
+
+
+
+
+
+
+
 }

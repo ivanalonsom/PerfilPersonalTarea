@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
+
         <!-- Título de la Aplicación -->
         <!-- Imagen Representativa -->
         <TextView
@@ -34,23 +35,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
         <!-- Campos de Entrada: Nombre, Apellido, Correo -->
+
+
         <EditText
             android:id="@+id/editTextNombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/nombre"
-            app:layout_constraintTop_toBottomOf="@id/imgAvatar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:inputType="textPersonName"
+            android:layout_marginTop="16dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:hint="@string/nombre"
+            android:inputType="textPersonName"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_marginTop="16dp">
-        <requestFocus />
-        </EditText>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgAvatar">
+            <requestFocus />
 
+        </EditText>
 
         <EditText
             android:id="@+id/editTextApellido"
@@ -64,6 +68,7 @@
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:layout_marginTop="8dp" />
+
         <EditText
             android:id="@+id/editTextCorreo"
             android:layout_width="0dp"
@@ -76,6 +81,7 @@
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:layout_marginTop="8dp" />
+
         <!-- Selección de Género -->
         <RadioGroup
             android:id="@+id/radioGroupGenero"
@@ -111,6 +117,7 @@
                 android:text="@string/otro"
                 android:textSize="18sp" />
         </RadioGroup>
+
         <!-- País de Origen -->
         <Spinner
             android:id="@+id/spinnerPais"
@@ -122,6 +129,7 @@
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:layout_marginTop="16dp" />
+
         <!-- Hobbies -->
         <TextView
             android:id="@+id/textViewHobbies"
@@ -169,6 +177,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/checkButtonMusica" />
         <!-- Nivel de Satisfacción -->
+
         <TextView
             android:id="@+id/textViewSatisfaccion"
             android:layout_width="wrap_content"
@@ -186,6 +195,7 @@
             app:layout_constraintTop_toBottomOf="@id/textViewSatisfaccion"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
         <!-- Suscripción al Boletín -->
         <!-- Con Switch me daba un warning en el código del botón, por eso
         uso este que me recomienda el consejo del warning (es más compatible
@@ -201,6 +211,7 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/seekBarSatisfaccion" />
+
         <!-- Botón Guardar -->
         <Button
             android:id="@+id/buttonGuardar"
@@ -212,6 +223,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/switchSuscripcion" />
+
         <!-- Visualización del Perfil -->
         <TextView
             android:id="@+id/textViewResumen"
