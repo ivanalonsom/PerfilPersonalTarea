@@ -10,6 +10,7 @@ import android.widget.RadioGroup
 import android.widget.SeekBar
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
@@ -23,7 +24,7 @@ private lateinit var lecturaCheckBox: CheckBox
 private lateinit var deporteCheckBox: CheckBox
 private lateinit var musicaCheckBox: CheckBox
 private lateinit var arteCheckBox: CheckBox
-private lateinit var nivelSatisfaccionSeekBar: SeekBar
+
 private lateinit var nivelSatisfaccionTextView: TextView
 private lateinit var suscripcionSwitch: SwitchCompat
 private lateinit var guardarBoton: Button
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         deporteCheckBox = findViewById(R.id.checkButtonDeporte)
         musicaCheckBox = findViewById(R.id.checkButtonMusica)
         arteCheckBox = findViewById(R.id.checkButtonArte)
-        nivelSatisfaccionSeekBar = findViewById(R.id.seekBarSatisfaccion)
+        val nivelSatisfaccionSeekBar : SeekBar = findViewById(R.id.seekBarSatisfaccion)
         nivelSatisfaccionTextView = findViewById(R.id.textViewSatisfaccion)
         suscripcionSwitch = findViewById(R.id.switchSuscripcion)
         guardarBoton = findViewById(R.id.buttonGuardar)
@@ -139,7 +140,9 @@ class MainActivity : AppCompatActivity() {
         if (arteCheckBox.isChecked) hobbies.add(getString(R.string.arte))
         // Con un when, al no tener una condición, solo evaluaba lo primero que fuera cierto y salía
 
-        return hobbies.joinToString(", ")
+        if (hobbies.isNotEmpty()) {
+            return hobbies.joinToString(", ")
+        }else return getString(R.string.sin_hobbies)
     }
 
 
@@ -153,7 +156,11 @@ class MainActivity : AppCompatActivity() {
         val texto = campo.text.toString() // Obtén el texto del campo
 
         return if (TextUtils.isEmpty(texto)) {
-            campo.error = "Este campo es obligatorio" // Muestra un mensaje de error
+            campo.error = getString(R.string.campo_obligatorio)
+            /*
+            Muestra un mensaje de error. Más util así para saber si tengo un campo vacío o más
+            de uno
+             */
             false
         } else {
             true
@@ -164,10 +171,13 @@ class MainActivity : AppCompatActivity() {
     private fun emailValido(email : String) : Boolean {
 
         val esValido : Boolean = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+
         return if (esValido){
             true
         }else{
-            correoEditText.error = "El email introducido no es válido"
+            //correoEditText.error = getString(R.string.correo_no_valido)
+            val toast = Toast.makeText(this, getString(R.string.correo_no_valido), Toast.LENGTH_SHORT)
+            toast.show()
             false
         }
     }

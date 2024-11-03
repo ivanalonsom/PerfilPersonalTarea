@@ -14,6 +14,7 @@
     <string name="deporte">Deporte</string>
     <string name="musica">Música</string>
     <string name="arte">Arte</string>
+    <string name="sin_hobbies">Ninguno</string>
     <string name="nivel_de_satisfaccion">Nivel de satisfacción: 0</string>
     <string name="suscribirse_al_boletin">Suscribirse al boletín</string>
     <string name="guardar">Guardar</string>
@@ -38,5 +39,8 @@
         \nNivel de satisfacción: %7$d
         \nSuscripción al boletín: %8$s
     </string>
+
+    <string name="campo_obligatorio">Este campo es obligatorio</string>
+    <string name="correo_no_valido">Email no válido</string>
 
 </resources>
