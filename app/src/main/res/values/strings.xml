@@ -16,10 +16,14 @@
     <string name="nivel_de_satisfaccion">Nivel de satisfacción: 0</string>
     <string name="suscribirse_al_boletin">Suscribirse al boletín</string>
     <string name="guardar">Guardar</string>
+
     <string-array name="opciones_paises">
         <item>España</item>
         <item>Bolivia</item>
         <item>El Perú</item>
         <item>Portugal</item>
     </string-array>
+
+    <string name="satisfaccion_dinamica">Nivel de satisfacción: %d</string>
+
 </resources>
