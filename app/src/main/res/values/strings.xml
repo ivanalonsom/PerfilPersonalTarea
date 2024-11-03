@@ -2,6 +2,20 @@
     <string name="app_name">PerfilPersonalTarea</string>
     <string name="nombre">Nombre</string>
     <string name="apellido">Apellido</string>
+    <string name="mi_perfil_personal">Mi Perfil Personal</string>
+    <string name="correo_electronico">Correo Electrónico</string>
+    <string name="foto_perfil">Foto de perfil</string>
+    <string name="masculino">Masculino</string>
+    <string name="femenino">Femenino</string>
+    <string name="otro">Otro</string>
+    <string name="selecciona_tus_hobbies">Selecciona tus hobbies:</string>
+    <string name="lectura">Lectura</string>
+    <string name="deporte">Deporte</string>
+    <string name="musica">Música</string>
+    <string name="arte">Arte</string>
+    <string name="nivel_de_satisfaccion">Nivel de satisfacción: 0</string>
+    <string name="suscribirse_al_boletin">Suscribirse al boletín</string>
+    <string name="guardar">Guardar</string>
     <string-array name="opciones_paises">
         <item>España</item>
         <item>Bolivia</item>

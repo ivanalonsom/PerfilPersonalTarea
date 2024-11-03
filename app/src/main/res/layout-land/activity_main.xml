@@ -14,7 +14,7 @@
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:text="@string/mi_perfil_personal"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -27,7 +27,7 @@
             android:id="@+id/imgAvatar"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="30dp"
             android:contentDescription="@string/foto_perfil"
             android:src="@drawable/iconoapp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,17 +38,20 @@
             android:id="@+id/editTextNombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/nombre"
-            app:layout_constraintTop_toBottomOf="@id/imgAvatar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:inputType="textPersonName"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:hint="@string/nombre"
+            android:inputType="textPersonName"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_marginTop="16dp">
-        <requestFocus />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgAvatar">
+
+            <requestFocus />
         </EditText>
 
 
@@ -56,36 +59,43 @@
             android:id="@+id/editTextApellido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:hint="@string/apellido"
-            app:layout_constraintTop_toBottomOf="@id/editTextNombre"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:inputType="textPersonName"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_marginTop="8dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextNombre" />
+
         <EditText
             android:id="@+id/editTextCorreo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:hint="@string/correo_electronico"
-            app:layout_constraintTop_toBottomOf="@id/editTextApellido"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:inputType="textEmailAddress"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_marginTop="8dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextApellido" />
         <!-- Selección de Género -->
         <RadioGroup
             android:id="@+id/radioGroupGenero"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/editTextCorreo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextCorreo">
 
             <RadioButton
                 android:id="@+id/radioButtonMasculino"
@@ -99,7 +109,7 @@
                 android:id="@+id/radioButtonFemenino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20sp"
+                android:layout_marginStart="30sp"
                 android:text="@string/femenino"
                 android:textSize="18sp" />
 
@@ -107,7 +117,7 @@
                 android:id="@+id/radioButtonOtro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20sp"
+                android:layout_marginStart="30sp"
                 android:text="@string/otro"
                 android:textSize="18sp" />
         </RadioGroup>
@@ -116,17 +126,20 @@
             android:id="@+id/spinnerPais"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/radioGroupGenero"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroupGenero" />
         <!-- Hobbies -->
         <TextView
             android:id="@+id/textViewHobbies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:text="@string/selecciona_tus_hobbies"
             android:textSize="18sp"
@@ -137,6 +150,7 @@
             android:id="@+id/checkButtonLectura"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:text="@string/lectura"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -146,6 +160,7 @@
             android:id="@+id/checkButtonDeporte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:text="@string/deporte"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -155,6 +170,7 @@
             android:id="@+id/checkButtonMusica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:text="@string/musica"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -164,6 +180,7 @@
             android:id="@+id/checkButtonArte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:text="@string/arte"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -173,27 +190,34 @@
             android:id="@+id/textViewSatisfaccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:text="@string/nivel_de_satisfaccion"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/checkButtonArte" />
+
         <SeekBar
             android:id="@+id/seekBarSatisfaccion"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:max="10"
-            app:layout_constraintTop_toBottomOf="@id/textViewSatisfaccion"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/textViewSatisfaccion" />
         <!-- Suscripción al Boletín -->
         <!-- Con Switch me daba un warning en el código del botón, por eso
         uso este que me recomienda el consejo del warning (es más compatible
         con versiones anteriores) -->
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchSuscripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:minWidth="48dp"
             android:minHeight="48dp"
@@ -217,7 +241,9 @@
             android:id="@+id/textViewResumen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
