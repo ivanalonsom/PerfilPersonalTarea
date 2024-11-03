@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         guardarBoton = findViewById(R.id.buttonGuardar)
         resumenTextView = findViewById(R.id.textViewResumen)
 
-
+        //getResumenPerfil(nombreEditText, apellidoEditText, correoEditText, )
         val spinnerPaises = findViewById<Spinner>(R.id.spinnerPais)
 
         val adaptador = ArrayAdapter.createFromResource(
@@ -79,25 +79,51 @@ class MainActivity : AppCompatActivity() {
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-
+            /* Estos dos métodos debo tenerlos aunque estén vacíos porque cuando sobreescribo un
+             método, estoy obligado a implementar todos
+            */
         })
 
 
+        guardarBoton.setOnClickListener{
 
+            val nombre : String = nombreEditText.text.toString()
+            val apellido : String = apellidoEditText.text.toString()
+            val email : String = correoEditText.text.toString()
+            val hobbies = getHobbiesSeleccionados()
+
+
+
+
+
+
+        }
 
     }
 
 
-    private fun onClickGenerate(){
+    private fun getHobbiesSeleccionados() : List<String> {
 
+        val hobbies = mutableListOf<String>()
+        //if(lecturaCheckBox.isChecked)
+        when{
+            lecturaCheckBox.isChecked -> hobbies.add(R.string.lectura.toString())
+            deporteCheckBox.isChecked -> hobbies.add(R.string.deporte.toString())
+            musicaCheckBox.isChecked -> hobbies.add(R.string.musica.toString())
+            arteCheckBox.isChecked -> hobbies.add(R.string.arte.toString())
 
-
-
-
+        }
+        return hobbies
     }
 
 
+    private fun getResumenPerfil(nom : String, ap : String, email : String, genero : String,
+                                 pais : String, hobbies : List<String>, satisf : String, susc : String){
 
+        resumenTextView.setText(getString(R.string.resumen_general, nom, ap, email, genero, pais,
+            hobbies.joinToString(", "), satisf, susc) )
+
+    }
 
 
 

@@ -26,4 +26,14 @@
 
     <string name="satisfaccion_dinamica">Nivel de satisfacción: %d</string>
 
+    <string name="resumen_general">
+            Nombre completo: %1$s %2$s
+            Correo: %3$s
+            Género: %4$s
+            Pais: %5$s
+            Hobbies: %6$s
+            Nivel de satisfacción: %7$d
+            Suscripción al boletín: %8$s
+    </string>
+
 </resources>
