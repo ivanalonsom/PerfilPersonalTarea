@@ -1,5 +1,6 @@
 package com.example.perfilpersonaltarea
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
@@ -101,7 +102,7 @@ class MainActivity : AppCompatActivity() {
             val satisfaccion = nivelSatisfaccionSeekBar.progress
             val suscrito = getSuscripcion()
 
-
+            val esNombreValido = verificaCampoObligatorio(nombreEditText)
             getResumenPerfil(nombre, apellido, email, genero,pais, hobbies, satisfaccion, suscrito )
 
         }
@@ -141,8 +142,20 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    private fun verificaCampoObligatorio(campo: EditText): Boolean {
+        val texto = campo.text.toString() // Obtén el texto del campo
+        return if (TextUtils.isEmpty(texto)) {
+            campo.error = "Este campo es obligatorio" // Muestra un mensaje de error
+            false
+        } else {
+            true
+        }
+    }
+
+
     private fun getResumenPerfil(nom : String, ap : String, email : String, genero : String,
                                  pais : String, hobbies : String, satisf : Int, susc : String){
+
 
         resumenTextView.setText(getString(R.string.resumen_general, nom, ap, email, genero, pais,
             hobbies, satisf, susc) )
